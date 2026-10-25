@@ -1,0 +1,35 @@
+fastapi>=0.115
+uvicorn[standard]>=0.32
+sqlalchemy>=2.0
+alembic>=1.14
+pydantic>=2.9
+pydantic-settings>=2.6
+email-validator>=2.2
+pyjwt>=2.10
+bcrypt>=4.2
+cryptography>=44.0
+httpx>=0.28
+sse-starlette>=2.1
+anthropic>=0.40
+openai>=1.55
+google-genai>=1.0
+python-multipart>=0.0.18
+pymupdf>=1.25
+python-docx>=1.1
+rispy>=0.9
+bibtexparser>=1.4,<2
+rapidfuzz>=3.9
+# full-text retrieval (vendored DOI batch downloader)
+beautifulsoup4>=4.12
+requests>=2.32
+# playwright powers the bot-protected OA tier AND the institutional (EZProxy/
+# CAS) tier — without it both are silently skipped. After pip install, run:
+#   python -m playwright install chromium
+playwright>=1.61
+# thematic map of the corpus (results page): TF-IDF, SVD, k-means, t-SNE
+numpy>=2.1
+scikit-learn>=1.6
+# M9 extraction: XLSX export
+openpyxl>=3.1
+pytest>=8.3
+pytest-asyncio>=0.24

@@ -1,0 +1,29 @@
+# M11: never bake secrets, virtualenvs, local data or build junk into the image.
+# LITUBIK_SECRET_KEY signs JWTs AND decrypts stored API keys — it must only be
+# injected at runtime (docker-compose / env), never copied via `COPY backend/`.
+**/.env
+**/.env.*
+**/.venv
+**/venv
+# the runtime data dir only — NOT backend/app/data, which ships the EZproxy
+# directory and the demo seed with the code (`**/data` excluded those too, and
+# the hosted image answered "proxy directory is missing from this installation")
+data
+backend/data
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.mypy_cache
+**/node_modules
+frontend/dist
+packaging/dist
+packaging/build
+**/*.db
+**/*.db-wal
+**/*.db-shm
+.git
+.gitignore
+**/secret.key
+# full-text credential files, if any were left next to the sources
+backend/app/services/fulltext/institutions.json
+backend/app/services/fulltext/proxies.json

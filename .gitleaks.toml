@@ -1,0 +1,10 @@
+# gitleaks configuration (CI job "gitleaks"): the default rules, minus the
+# test fixtures, which use deliberately fake keys (sk-ant-DUMMY-…, etc.).
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Fake credentials in the test suite"
+paths = [
+  '''backend/tests/''',
+]

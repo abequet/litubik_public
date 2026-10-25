@@ -1,0 +1,187 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Dark class drives the dark theme; the app boots with <html class="dark">.
+   `.dark *` so utilities like `dark:` resolve against the class, not the OS. */
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Cascadia Mono",
+    Consolas, monospace;
+}
+
+/* ------------------------------------------------------------------ *
+   Design tokens — monochrome, Linear/Vercel style.
+   The ONLY hue in the product is the desaturated vote colours
+   (success / warning / destructive). Everything else is greyscale.
+   :root = light (secondary theme) · .dark = dark (default, hero).
+ * ------------------------------------------------------------------ */
+:root {
+  --radius: 0.5rem; /* 8px cards; buttons use radius-md = 6px (Linear-tight) */
+
+  --background: #fafafa;
+  --foreground: #18181b;
+  --card: #ffffff;
+  --card-foreground: #18181b;
+  --popover: #ffffff;
+  --popover-foreground: #18181b;
+
+  /* graphite accent: near-black primary, no hue */
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #6b6b74; /* 4.8:1 on --muted, 5.3:1 on --card (WCAG 1.4.3) */
+  --accent: #f4f4f5; /* hover surface (shadcn "accent") — neutral */
+  --accent-foreground: #18181b;
+
+  --border: #e4e4e7;
+  --input: #d4d4d8;
+  --ring: #a1a1aa;
+
+  /* desaturated vote colours (the only colour in the UI) */
+  --success: #2e6a4f; /* 5.6:1 on white, ≥ 4.5:1 on success/15 (WCAG 1.4.3) */
+  --success-foreground: #ffffff;
+  --warning: #765a14; /* 6.0:1 on white, ≥ 4.5:1 on warning/15 */
+  --warning-foreground: #ffffff;
+  --destructive: #b0554c;
+  --destructive-foreground: #ffffff;
+
+  /* okabe-ito, colour-blind-safe — reserved for data-viz (CitationGraph) */
+  --viz-orange: #d55e00;
+  --viz-teal: #009e73;
+  --viz-blue: #0072b2;
+  --viz-vermilion: #cc79a7;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #ededf0;
+  --card: #131316;
+  --card-foreground: #ededf0;
+  --popover: #17171a;
+  --popover-foreground: #ededf0;
+
+  --primary: #e4e4e7; /* light button on dark ground, dark label */
+  --primary-foreground: #18181b;
+  --secondary: #1e1e22;
+  --secondary-foreground: #ededf0;
+  --muted: #1e1e22;
+  --muted-foreground: #9a9aa3;
+  --accent: #1e1e22;
+  --accent-foreground: #ededf0;
+
+  --border: #252529;
+  --input: #2c2c31;
+  --ring: #52525b;
+
+  --success: #56a784;
+  --success-foreground: #08120c;
+  --warning: #c9a24b;
+  --warning-foreground: #1c1608;
+  --destructive: #c97064;
+  --destructive-foreground: #160a08;
+
+  --viz-orange: #e69f56;
+  --viz-teal: #34d399;
+  --viz-blue: #56a0d5;
+  --viz-vermilion: #d98cb3;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-viz-orange: var(--viz-orange);
+  --color-viz-teal: var(--viz-teal);
+  --color-viz-blue: var(--viz-blue);
+  --color-viz-vermilion: var(--viz-vermilion);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    color-scheme: light dark;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--foreground) 18%, transparent);
+  }
+}
+
+/* WCAG 2.3.3: honour the OS "reduce motion" setting — tw-animate-css
+   enter/exit animations and every transition collapse to an instant change.
+   The imperative animations (citation graph, guided tour) read the same
+   media query from lib/a11y.ts. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+   pdf.js text layer — transparent selectable glyphs over the canvas
+   so reviewers can select text to create highlight annotations.
+ * ------------------------------------------------------------------ */
+.textLayer {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  opacity: 1;
+  line-height: 1;
+  text-align: initial;
+  text-size-adjust: none;
+  forced-color-adjust: none;
+  transform-origin: 0 0;
+  caret-color: CanvasText;
+  z-index: 1;
+}
+.textLayer :is(span, br) {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0 0;
+}
+.textLayer span.markedContent {
+  top: 0;
+  height: 0;
+}
+.textLayer ::selection {
+  background: color-mix(in srgb, var(--foreground) 22%, transparent);
+}

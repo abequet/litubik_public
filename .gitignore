@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Environment & secrets
+.env*
+!.env.example
+*api_key*
+secret.key
+*.db
+*.db-wal
+*.db-shm
+*.sqlite*
+# App data (database, uploaded files, PDFs)
+data/
+# ...but the static data shipped with the backend (ezproxy directory) is code
+!backend/app/data/
+
+# Packaging build outputs (PyInstaller) — binaries go to GitHub Releases, never to git
+packaging/build/
+packaging/dist/
+/build/
+/dist/
+*.exe
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+

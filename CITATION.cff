@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: >-
+  LitUbik: an open-source, AI-assisted workbench covering the full
+  systematic-review lifecycle, from registered protocol to PRISMA 2020
+message: If you use LitUbik in a review, please cite it.
+type: software
+license: AGPL-3.0-or-later
+version: 1.0.0
+date-released: 2026-10-21
+repository-code: https://github.com/abequet/litubik_public
+abstract: >-
+  LitUbik is a self-hosted web application covering the complete
+  systematic-review lifecycle: import of a pre-registered protocol,
+  construction and multi-database translation of search equations, automated
+  database searching, fuzzy deduplication, blinded multi-reviewer screening of
+  titles/abstracts and full texts, full-text retrieval, citation snowballing,
+  quality appraisal (JBI, MMAT), data extraction, and a live PRISMA 2020 flow
+  diagram.
+  Optional large-language-model assistance is available at every stage, always
+  subject to human validation and recorded with full provenance.
+keywords:
+  - systematic literature review
+  - PRISMA 2020
+  - evidence synthesis
+  - research methodology
+  - large language models
+  - reproducibility
+authors:
+  - family-names: Béquet
+    given-names: Adolphe J.
+    affiliation: Université Gustave Eiffel
+  - family-names: Laurent
+    given-names: Sébastien
+    affiliation: Independent web developer

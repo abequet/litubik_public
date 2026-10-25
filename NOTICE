@@ -1,0 +1,187 @@
+LitUbik
+Copyright (C) 2026 Université Gustave Eiffel
+
+Written by Adolphe J. Béquet and Sébastien Laurent.
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option) any
+later version. The full text is in LICENSE.
+
+
+================================================================================
+Third-party text reproduced in LitUbik — NOT covered by the AGPL
+================================================================================
+
+The AGPL grant above covers LitUbik's own code. It does not extend to the
+wording of the reporting guidelines and appraisal instruments below, which
+LitUbik reproduces so that reviewers can fill them in. That wording remains the
+work of its authors, reproduced here with attribution and under their own
+terms. Anyone redistributing LitUbik — and in particular anyone offering it as
+a commercial service — must check those terms for their own use.
+
+--------------------------------------------------------------------------------
+PRISMA 2020 and PRISMA-S — CC BY 4.0
+    backend/app/services/reporting/checklists/prisma2020.py
+--------------------------------------------------------------------------------
+The PRISMA 2020 checklist items are reproduced verbatim; the flow diagram
+follows the PRISMA 2020 structure but is drawn by LitUbik from its own counts
+(no template artwork is reproduced).
+
+    Page MJ, McKenzie JE, Bossuyt PM, Boutron I, Hoffmann TC, Mulrow CD, et al.
+    The PRISMA 2020 statement: an updated guideline for reporting systematic
+    reviews. BMJ 2021;372:n71. https://doi.org/10.1136/bmj.n71
+
+    Rethlefsen ML, Kirtley S, Waffenschmidt S, Ayala AP, Moher D, Page MJ, et al.
+    PRISMA-S: an extension to the PRISMA statement for reporting literature
+    searches in systematic reviews. Syst Rev 2021;10:39.
+    https://doi.org/10.1186/s13643-020-01542-z
+
+--------------------------------------------------------------------------------
+SWiM — Synthesis Without Meta-analysis reporting guideline — CC BY 4.0
+    backend/app/services/reporting/checklists/swim.py
+--------------------------------------------------------------------------------
+The nine SWiM items are reproduced verbatim from the open-access article
+(Creative Commons Attribution 4.0):
+
+    Campbell M, McKenzie JE, Sowden A, Katikireddi SV, Brennan SE, Ellis S,
+    et al. Synthesis without meta-analysis (SWiM) in systematic reviews:
+    reporting guideline. BMJ 2020;368:l6890. https://doi.org/10.1136/bmj.l6890
+
+--------------------------------------------------------------------------------
+JBI critical-appraisal checklists
+    backend/app/services/appraisal/jbi.py
+--------------------------------------------------------------------------------
+The quality-appraisal step reproduces the questions of eight JBI checklists:
+the revised tools for randomized controlled trials and quasi-experimental
+studies (2023), and the checklists for cohort, case-control, cross-sectional /
+prevalence, qualitative research (2024 edition), case reports and systematic
+reviews.
+
+    Barker TH, Stone JC, Sears K, Klugar M, Tufanaru C, Leonardi-Bee J, et al.
+    The revised JBI critical appraisal tool for the assessment of risk of bias
+    for randomized controlled trials. JBI Evid Synth 2023;21(3):494-506.
+
+    Joanna Briggs Institute. JBI Critical Appraisal Tools. https://jbi.global/
+    critical-appraisal-tools
+
+The checklists are © JBI and made available for research purposes. JBI is a
+registered trademark of the Joanna Briggs Institute. LitUbik is not affiliated
+with, nor endorsed by, JBI.
+
+--------------------------------------------------------------------------------
+Mixed Methods Appraisal Tool (MMAT), version 2018
+    backend/app/services/appraisal/mmat.py (English criteria)
+    frontend/src/locales/fr.json (official French edition, 2020)
+--------------------------------------------------------------------------------
+    Hong, Q. N., Pluye, P., Fàbregues, S., Bartlett, G., Boardman, F., Cargo,
+    M., Dagenais, P., Gagnon, M.-P., Griffiths, F., Nicolau, B., O'Cathain, A.,
+    Rousseau, M.-C., & Vedel, I. (2018). Mixed Methods Appraisal Tool (MMAT),
+    version 2018. User guide. McGill University.
+    http://mixedmethodsappraisaltoolpublic.pbworks.com
+
+The user guide states that the MMAT is free and that its use is open for any
+education and research activity. Only the screening questions and criteria are
+reproduced, without the guide's explanations. LitUbik is not affiliated with
+the MMAT authors.
+
+
+================================================================================
+Methods LitUbik follows without reproducing their text
+================================================================================
+
+    CREST_Triage — Whaley P. CREST_Triage: Appraisal Tool for Systematic
+    Reviews. 2022. https://osf.io/u4j5m/ (the pre-submission checks in
+    backend/app/services/reporting/checklists/crest.py list the problems it
+    describes; its scores are not reproduced).
+
+    GRADE — certainty of the evidence, following the five steps of
+    Brignardello-Petersen R & Guyatt GH, Am J Epidemiol 2025;194:1681-6
+    (backend/app/services/synthesis/grade.py).
+
+
+================================================================================
+Third-party components
+================================================================================
+
+LitUbik bundles or depends on the following. Each remains under its own licence;
+this section records the ones that carry an obligation or that a redistributor
+needs to know about. A machine-generated inventory of every transitive
+dependency is in THIRD_PARTY_LICENSES.md; the Windows release also ships
+THIRD_PARTY_NOTICES.txt, the full licence texts of the bundled packages.
+
+--------------------------------------------------------------------------------
+PyMuPDF / MuPDF — GNU AGPL v3, or a commercial licence from Artifex
+    https://github.com/pymupdf/PyMuPDF
+--------------------------------------------------------------------------------
+Used for PDF text extraction, reference mining and bulk PDF import.
+
+This is the reason LitUbik itself is AGPL and cannot be relicensed under
+permissive terms: PyMuPDF is copyleft, and the AGPL forbids adding restrictions
+downstream. Anyone wanting to ship a derivative under a non-AGPL licence must
+obtain a commercial licence from Artifex, or replace this dependency.
+
+--------------------------------------------------------------------------------
+PyInstaller — GPL v2 or later, WITH the bootloader exception
+    https://pyinstaller.org
+--------------------------------------------------------------------------------
+Build-time only, used to produce the Windows executable. The exception
+explicitly permits distributing the generated executable under any licence, so
+the packaged build carries LitUbik's own terms and not PyInstaller's.
+
+--------------------------------------------------------------------------------
+bibtexparser — LGPL v3 or BSD (dual)   |   certifi — MPL 2.0
+--------------------------------------------------------------------------------
+Both are file-level copyleft at most and impose no obligation on LitUbik beyond
+preserving their own notices (see THIRD_PARTY_NOTICES.txt in the Windows build).
+
+--------------------------------------------------------------------------------
+axe-core — MPL 2.0   |   lightningcss — MPL 2.0
+--------------------------------------------------------------------------------
+Development and build tools only (the accessibility audit run in CI, and the
+CSS minifier used by the frontend build). Neither is shipped in the
+application.
+
+--------------------------------------------------------------------------------
+EZproxy institution directory — CC BY-SA 4.0
+    https://github.com/tom5760/ezproxy-db
+--------------------------------------------------------------------------------
+backend/app/data/ezproxy_db.json is derived from this public directory of
+library proxy endpoints, under the Creative Commons Attribution-ShareAlike 4.0
+licence reproduced in backend/app/data/ezproxy_db.LICENSE. The derived file is
+shared under the same licence.
+
+--------------------------------------------------------------------------------
+shadcn/ui — MIT
+    https://ui.shadcn.com
+--------------------------------------------------------------------------------
+The components in frontend/src/components/ui/ were generated by the shadcn CLI
+and then edited locally. Their MIT licence is reproduced in
+frontend/src/components/ui/LICENSE.
+
+--------------------------------------------------------------------------------
+pdf.js (pdfjs-dist) — Apache License 2.0
+    https://mozilla.github.io/pdf.js/
+--------------------------------------------------------------------------------
+Powers the in-app PDF viewer. Note: LitUbik does not bundle pdf.js's standard
+fonts or CMaps, so the additional Foxit/PDFium and Liberation font notices that
+ship with the package are not triggered. Enabling `standardFontDataUrl` or
+`cMapUrl` would require reproducing them.
+
+--------------------------------------------------------------------------------
+World map outlines — Natural Earth (public domain), via world-atlas (ISC)
+--------------------------------------------------------------------------------
+frontend/src/components/results/world-paths.json is generated from the Natural
+Earth 1:110m countries through the world-atlas package
+(frontend/scripts/build-world-paths.mjs). Made with Natural Earth.
+
+--------------------------------------------------------------------------------
+Bibliographic and open-access APIs
+--------------------------------------------------------------------------------
+LitUbik queries Crossref, OpenAlex, Semantic Scholar, PubMed/NCBI E-utilities,
+Europe PMC, arXiv, HAL, DOAJ, OpenCitations, Unpaywall and OSF, plus Scopus,
+IEEE Xplore, CORE, Lens, Springer Nature and Web of Science when the operator
+supplies their own API key. Each service has its own terms of use; the
+operator is responsible for honouring them. LitUbik identifies itself with the
+contact address the operator configures (LITUBIK_CONTACT_EMAIL, or the global
+Unpaywall e-mail) and sends none otherwise — never a placeholder address.

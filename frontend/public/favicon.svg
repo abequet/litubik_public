@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- LitUbik app icon on a tile: for the Windows exe, taskbar and favicon. -->
+  <rect width="64" height="64" rx="14" fill="#1d4f82"/>
+  <g fill="none" stroke="#f3f6fa" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(6 6) scale(0.8125)">
+    <path d="M32 50 V36"/>
+    <path d="M32 40 C32 30 18 34 12 26"/>
+    <path d="M32 38 C32 30 26 26 24 18"/>
+    <path d="M32 38 C32 30 38 26 40 18"/>
+    <path d="M32 40 C32 30 46 34 52 26"/>
+    <path d="M29 48 C20 48 18 56 9 58"/>
+    <path d="M35 48 C44 48 46 56 55 58"/>
+    <path d="M32 50 V61"/>
+    <path d="M26 53 C38 52 42 58 48 61"/>
+    <path d="M38 53 C26 52 22 58 16 61"/>
+  </g>
+  <g fill="#f59a3f" transform="translate(6 6) scale(0.8125)">
+    <rect x="3"  y="18" width="14" height="17" rx="2.5"/>
+    <rect x="17" y="4"  width="14" height="17" rx="2.5"/>
+    <rect x="33" y="4"  width="14" height="17" rx="2.5"/>
+    <rect x="47" y="18" width="14" height="17" rx="2.5"/>
+  </g>
+</svg>

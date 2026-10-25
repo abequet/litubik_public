@@ -1,0 +1,36 @@
+# Hosted deployment (a lab/university server). SQLite on the /data volume.
+# The commented db service below is groundwork for a future Postgres port, NOT
+# a supported configuration: the migrations are validated on SQLite only (see
+# README, "Postgres").
+# Put a reverse proxy with HTTPS (Caddy/nginx/Traefik) in front for anything
+# beyond a trusted LAN. Local one-click use does NOT need Docker — see
+# start.bat / packaging/.
+services:
+  litubik:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/data
+    environment:
+      - LITUBIK_SECRET_KEY=${LITUBIK_SECRET_KEY:?set in .env — it encrypts stored API keys}
+      # future Postgres port (unsupported today): would also need `psycopg[binary]`
+      # - LITUBIK_DATABASE_URL=postgresql+psycopg://litubik:${POSTGRES_PASSWORD}@db/litubik
+      # - LITUBIK_ALLOW_REGISTRATION=true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')\""]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  # db:
+  #   image: postgres:17
+  #   environment:
+  #     - POSTGRES_DB=litubik
+  #     - POSTGRES_USER=litubik
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?set in .env}
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   restart: unless-stopped
+# volumes:
+#   pgdata:

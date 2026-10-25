@@ -1,0 +1,19 @@
+ezproxy_db.json — attribution and licence
+=========================================
+
+Source:  https://github.com/tom5760/ezproxy-db
+Licence: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+         https://creativecommons.org/licenses/by-sa/4.0/
+
+`ezproxy_db.json` is a directory of publicly documented library proxy endpoints,
+derived from the tom5760/ezproxy-db dataset. LitUbik reshapes the upstream
+records into the {name, url, country} form its typeahead consumes; entries may
+have been added or corrected locally.
+
+CC BY-SA is a copyleft licence for the *data*: anyone redistributing this file,
+or an adapted version of it, must keep this attribution and license the result
+under CC BY-SA 4.0 as well. That obligation is on the file, not on LitUbik's
+source code, which stays under the AGPL (see ../../../LICENSE).
+
+No credential, no institutional account and no private endpoint is contained in
+this file — only proxy URLs that the institutions themselves publish.
