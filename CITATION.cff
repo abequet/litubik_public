@@ -6,7 +6,7 @@ message: If you use LitUbik in a review, please cite it.
 type: software
 license: AGPL-3.0-or-later
 version: 1.0.0
-date-released: 2026-10-21
+date-released: 2026-10-25
 repository-code: https://github.com/abequet/litubik_public
 abstract: >-
   LitUbik is a self-hosted web application covering the complete
