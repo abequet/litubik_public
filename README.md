@@ -10,6 +10,10 @@ for the manuscript.
 Optional AI assistance at every step (Anthropic / OpenAI / Gemini / Grok / Mistral, or a local
 OpenAI-compatible server such as Ollama — user-provided API keys).
 
+**Live demo and illustration**: www.litubik.org/ 
+
+**Preprint** : Béquet, A. J., Laurent, S., & Bouvier, B. (2026). *LitUbik: open-source software for human-led systematic reviews with traceable AI assistance* (arXiv:2610.37181). arXiv. https://doi.org/10.48550/arXiv.2610.37181 
+
 ### Reporting: the paragraphs your paper needs, written from the audit trail
 
 The last step drafts two texts, from what the app recorded rather than from what anyone
